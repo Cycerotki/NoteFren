@@ -26,4 +26,19 @@ NoteFren also offers these AI assistants:
 - Redis
 
 ## I want to try build this myself
-Head over to [tutorials](./tutorial) and you can follow step by step
+When there is time, tutorials will be written.  
+For now, we will list commands in subsections with brief descriptions.  
+
+### Server
+1. Create a server folder
+2. Go to FastAPI website to make a simple FastAPI server in server folder
+3. Run: 
+    ```
+    cd server
+    
+    //test environment
+    fastapi dev server/main.py
+
+    //production
+    fastapi run
+    ```

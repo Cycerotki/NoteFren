@@ -3,10 +3,12 @@
 - [ ] Make Dockerfile  
 - [ ] Configure Redis  
 - [x] Configure Ollama  
-- [ ] Make AI Chat: Llama3.2  
-- [x] Make tool runner: qwen2.5  
+- [ ] Make AI Chat: Llama3.1  
+- [x] Make tool runner: Llama3.1
 - [ ] Add ASR: [talk-llama](https://github.com/ggerganov/whisper.cpp/blob/master/examples/talk-llama/README.md)  
-- [ ] Add Summarising tool: llama/mistral  
+- [x] Add Summarising tool: llama/mistral 
+- [x] Add DuckDuckGo search
+- [ ] Add Wikipedia 
 - [ ] Add OCR: Llava-phi3  
 - [ ] Add Podcast function: piper  
 - [ ] Add PDF parsing: camelot-py  
