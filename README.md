@@ -25,7 +25,7 @@ NoteFren also offers these AI assistants:
 - Ollama
 - Redis
 
-## I want to try build this myself
+## I want to try build this myself!
 When there is time, tutorials will be written.  
 For now, we will list commands in subsections with brief descriptions.  
 

@@ -8,7 +8,7 @@
 - [ ] Add ASR: [talk-llama](https://github.com/ggerganov/whisper.cpp/blob/master/examples/talk-llama/README.md)  
 - [x] Add Summarising tool: llama/mistral 
 - [x] Add DuckDuckGo search
-- [ ] Add Wikipedia 
+- [x] Add Wikipedia 
 - [ ] Add OCR: Llava-phi3  
 - [ ] Add Podcast function: piper  
 - [ ] Add PDF parsing: camelot-py  

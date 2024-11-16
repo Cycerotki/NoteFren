@@ -6,5 +6,5 @@ class MessageReq(BaseModel):
 class Response(BaseModel):
     code: int = 200
 
-class TestResp(Response):
+class TextResp(Response):
     text: str
