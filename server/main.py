@@ -63,6 +63,10 @@ async def ask(req: MessageReq) -> TextResp:
 async def ocr(image: UploadFile) -> ListResp:
     return ListResp(data=text_from_image(await image.read()))
 
+@app.post('/asr/')
+async def asr(audio: UploadFile) -> ListResp:
+    return ListResp(data=transcribe(audio))
+
 
 if __name__=='__main__':
     # not necessary unless hostname or port needs to change
