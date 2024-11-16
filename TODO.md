@@ -9,6 +9,6 @@
 - [x] Add Summarising tool: llama/mistral 
 - [x] Add DuckDuckGo search
 - [x] Add Wikipedia 
-- [ ] Add OCR: Llava-phi3  
+- [x] Add OCR: easyOCR (https://github.com/JaidedAI/EasyOCR)  
 - [ ] Add Podcast function: piper  
 - [ ] Add PDF parsing: camelot-py  
