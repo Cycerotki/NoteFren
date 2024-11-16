@@ -5,10 +5,13 @@
 - [x] Configure Ollama  
 - [ ] Make AI Chat: Llama3.1  
 - [x] Make tool runner: Llama3.1
-- [ ] Add ASR: [talk-llama](https://github.com/ggerganov/whisper.cpp/blob/master/examples/talk-llama/README.md)  
-- [x] Add Summarising tool: llama/mistral 
+- [x] Add ASR: [whisper.cpp, decent performance at 1.53GB](https://github.com/ggerganov/whisper.cpp)
+- [x] Add Summarising tool: Llama3.1 
 - [x] Add DuckDuckGo search
 - [x] Add Wikipedia 
-- [ ] Add OCR: Llava-phi3  
-- [ ] Add Podcast function: piper  
-- [ ] Add PDF parsing: camelot-py  
+- [x] Add OCR: easyOCR (https://github.com/JaidedAI/EasyOCR)  
+- [ ] Add Podcast function:
+    - [piper](https://github.com/rhasspy/piper?tab=readme-ov-file)
+    - [xtts, its pretty natural sounding](https://huggingface.co/coqui/XTTS-v2)
+    - [alltalk2](https://github.com/erew123/alltalk_tts/tree/alltalkbeta)
+- [ ] Add PDF parsing: Omniparser? 

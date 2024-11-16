@@ -4,7 +4,7 @@ import os
 from typing import Dict, List
 
 # external libraries
-from fastapi import FastAPI
+from fastapi import FastAPI, UploadFile
 from langchain_core.messages import ToolMessage
 import uvicorn
 
@@ -59,6 +59,13 @@ async def ask(req: MessageReq) -> TextResp:
     
     return TextResp(text=res.content)
 
+@app.post('/ocr/')
+async def ocr(image: UploadFile) -> ListResp:
+    return ListResp(data=text_from_image(await image.read()))
+
+@app.post('/asr/')
+async def asr(audio: UploadFile) -> ListResp:
+    return ListResp(data=transcribe(audio))
 
 
 if __name__=='__main__':

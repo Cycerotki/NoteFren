@@ -1,6 +1,7 @@
-duckduckgo-search
+duckduckgo-search==6.3.4
+easyocr==1.7.2
 fastapi[standard]==0.115.2
-langchain
+langchain==0.3.7
 langchain-ollama==0.2.0
 langchain_community==0.3.7
 pydantic==2.9.2
