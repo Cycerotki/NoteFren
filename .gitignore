@@ -1,10 +1,12 @@
 .vscode
 .env
 __pycache__
-Dockerfile
 logs
 *.jpg
 *.jpeg
 *.mp3
 client.py
 whisper.cpp/
+.venv/
+otts/
+xtts_v2/

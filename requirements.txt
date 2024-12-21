@@ -6,3 +6,4 @@ langchain-ollama==0.2.0
 langchain_community==0.3.7
 pydantic==2.9.2
 wikipedia==1.4.0
+outetts
