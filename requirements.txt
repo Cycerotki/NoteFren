@@ -6,4 +6,8 @@ langchain-ollama==0.2.0
 langchain_community==0.3.7
 pydantic==2.9.2
 wikipedia==1.4.0
-outetts
+outetts==0.2.0
+rapid_latex_ocr==0.0.8
+pdfplumber==0.11.4
+docling==2.14.0
+torch==2.5.1

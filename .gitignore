@@ -10,3 +10,5 @@ whisper.cpp/
 .venv/
 otts/
 xtts_v2/
+*.onnx
+*.pth

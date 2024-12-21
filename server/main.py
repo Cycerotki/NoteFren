@@ -71,7 +71,7 @@ async def asr(audio: UploadFile) -> ListResp:
     return ListResp(data=transcribe(audio))
 
 @app.post('/podcast/')
-async def podcast(req: MessageReq) -> None:
+async def podcast(req: MessageReq) -> FileResponse:
     topic = req.message
     transcript_text = content_llm.invoke(generate_podcast_prompt(topic)).content
     transcript = []
@@ -80,6 +80,18 @@ async def podcast(req: MessageReq) -> None:
             transcript.append([int(row[0])-1, row[3:]])
 
     return FileResponse(generate_podcast(transcript))
+
+@app.post('/pdf/')
+async def pdf(pdf: UploadFile) -> TextResp:
+    with open(f'assets/{pdf.filename}', 'wb') as f:
+        f.write(pdf.file.read())
+    content, is_valid = parse_file(f'assets/{pdf.filename}')
+    if is_valid:
+        ls = content['content']
+        for i, pg in enumerate(ls):
+            ls[i] = content_llm.invoke(summary_prompt(pg))
+    content['content'] = content_llm.invoke(list_summary_prompt(', '.join(ls)))
+    return TextResp(text=content['content'])
 
 
 if __name__=='__main__':
