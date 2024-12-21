@@ -11,4 +11,5 @@
 - [x] Add Wikipedia 
 - [x] Add OCR: easyOCR (https://github.com/JaidedAI/EasyOCR)  
 - [x] Add Podcast function: OuteTTS (https://github.com/edwko/OuteTTS)
-- [ ] Add PDF parsing: Alibaba Omniparser? 
+- [ ] Add PDF parsing: docling
+    - ensure latex is parsed
