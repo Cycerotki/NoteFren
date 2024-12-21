@@ -1,6 +1,6 @@
 - [ ] Make frontend: streamlit  
 - [x] Make backend: fastapi  
-- [ ] Make Dockerfile  
+- [x] Make Dockerfile  
 - [ ] Configure Redis  
 - [x] Configure Ollama  
 - [ ] Make AI Chat: Llama3.1  
@@ -10,8 +10,5 @@
 - [x] Add DuckDuckGo search
 - [x] Add Wikipedia 
 - [x] Add OCR: easyOCR (https://github.com/JaidedAI/EasyOCR)  
-- [ ] Add Podcast function:
-    - [piper](https://github.com/rhasspy/piper?tab=readme-ov-file)
-    - [xtts, its pretty natural sounding](https://huggingface.co/coqui/XTTS-v2)
-    - [alltalk2](https://github.com/erew123/alltalk_tts/tree/alltalkbeta)
-- [ ] Add PDF parsing: Omniparser? 
+- [x] Add Podcast function: OuteTTS (https://github.com/edwko/OuteTTS)
+- [ ] Add PDF parsing: Alibaba Omniparser? 
