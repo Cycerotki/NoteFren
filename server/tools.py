@@ -8,11 +8,19 @@ from langchain_community.tools import DuckDuckGoSearchRun, WikipediaQueryRun
 from langchain_community.utilities import WikipediaAPIWrapper
 from langchain_core.tools import StructuredTool
 from langchain_ollama import ChatOllama
+import outetts
+from outetts.version.v1.interface import ModelOutput
+import torch
 
 # global objects
 SEARCH_ENGINE = DuckDuckGoSearchRun()
 READER = easyocr.Reader(['en'])
 wikipedia = WikipediaQueryRun(api_wrapper=WikipediaAPIWrapper())
+model_config = outetts.HFModelConfig_v1(
+    model_path="OuteAI/OuteTTS-0.2-500M",
+    language="en",  # Supported languages in v0.2: en, zh, ja, ko
+)
+INTERFACE = outetts.InterfaceHF(model_version="0.2", cfg=model_config)
 
 
 @tool
@@ -80,9 +88,41 @@ def transcribe(audio: UploadFile) -> List[str]:
     os.remove(f'{name}.wav')
     return text
 
+def generate_podcast(transcript: List[List[str]]):
+    """
+    Converts text into a 2-speaker podcast
+
+    Args:
+        content (List[List[str]]): podcast content
+    
+        Returns:
+            AudioFile: generated torchaudio file
+    """
+    speakers = (INTERFACE.load_default_speaker(name='male_4'),
+                INTERFACE.load_default_speaker(name='female_2'))
+    audiofiles: List[ModelOutput] = []
+
+    for i, content in transcript:
+        audiofiles.append(
+            INTERFACE.generate(
+                text=content,
+                # Lower temperature values may result in a more stable tone,
+                # while higher values can introduce varied and expressive speech
+                temperature=0.3,
+                repetition_penalty=1.1,
+                max_length=4096,
+                speaker=speakers[i],
+            )
+        )
+
+    output = ModelOutput(torch.cat([rec.audio for rec in audiofiles], dim=1), audiofiles[0].sr, audiofiles[0].enable_playback)
+    # Save the synthesized speech to a file
+    output.save(f"output.wav")
+    return 'output.wav'
+
 
 def tool_runner_init() -> Tuple[ChatOllama, ChatOllama, Dict[str, StructuredTool]]:
     tools = {"search": search, 'wikipedia': wikipedia}
     tool_llm = ChatOllama(model = "llama3.1").bind_tools(list(tools.values()))
-    summariser = ChatOllama(model = 'llama3.1')
+    summariser = ChatOllama(model = 'qwen2.5')
     return tool_llm, summariser, tools
