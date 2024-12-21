@@ -79,7 +79,7 @@ async def podcast(req: MessageReq) -> None:
         if row and row[0:2] in ('1:', '2:'):
             transcript.append([int(row[0])-1, row[3:]])
 
-    return FileResponse(generate_podcast(transcript[:3]))
+    return FileResponse(generate_podcast(transcript))
 
 
 if __name__=='__main__':
